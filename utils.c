@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobadiah <mobadiah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: narcisse <narcisse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:52:54 by mobadiah          #+#    #+#             */
-/*   Updated: 2023/09/15 15:38:14 by mobadiah         ###   ########.fr       */
+/*   Updated: 2023/09/16 02:49:31 by narcisse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,22 @@ char	*ft_get_cmd_path(char **envp, char *cmd_sect)
 	free_path_sections(path_sections);
 	free(cmd);
 	return (right_path);
+}
+
+// char *cmd = "ls -l -a" && cmd2 = "wc -l" 
+// 		        [0  1  3]
+
+void ft_exec_command(char **envp, char *cmd)
+{
+	char *path;
+	char **cmd_sections;
+
+	path = NUll;
+	cmd_sections = ft_split(cmd, ' ');
+	path = ft_get_cmd_path(envp, cmd_sections[0]);
+	if (!path || !cmd_sections)
+			free_path_sections(cmd_sections);
+	execve(path, cmd_sections, envp);
+	ft_error();
 }
 
