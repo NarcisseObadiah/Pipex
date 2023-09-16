@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: narcisse <narcisse@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mobadiah <mobadiah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:52:54 by mobadiah          #+#    #+#             */
-/*   Updated: 2023/09/16 02:49:31 by narcisse         ###   ########.fr       */
+/*   Updated: 2023/09/16 19:34:49 by mobadiah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/pipex.h"
 
-void	ft_error(void)
+void	ft_error(char *std, char *msg)
 {
-	perror("Error!!!");
+	ft_putstr_fd(std, 2);
+	perror(msg);
 	exit(EXIT_FAILURE);
 }
 
@@ -40,6 +41,8 @@ void	free_path_sections(char **path_sections)
 /* function extracts and splits the PATH environment variable into 
 an array of path sections. */
 
+/*Use of strdup to make a copy of the environnement var
+to avoid some eventual troubles*/
 
 char	**ft_get_path(char **envp)
 {
@@ -52,21 +55,23 @@ char	**ft_get_path(char **envp)
 	i = 0;
 	while (envp[i++])
 	{
-		if (ft_strncmp(envp[i], "PATH", 4))
+		if (ft_strnstr(envp[i], "PATH", 4))
 		{
 			envp_path = ft_strdup(envp[i]);
 			if (!envp_path)
-				ft_error();
+				ft_error(E_ENVP, "Errno");
 			break ;
 		}
 	}
 	if (envp_path)
 	{
-		path_sections = ft_split(envp_path, ":");
+		path_sections = ft_split(envp_path, ':');
 		free(envp_path);
 	}
 	return (path_sections);
 }
+
+
 /*access checks every path in env_path if we get access permission.
 Upon successful completion, the value 0 is returned; 
 otherwise the value -1 is returned and the global variable 
@@ -97,20 +102,30 @@ char	*ft_get_cmd_path(char **envp, char *cmd_sect)
 	return (right_path);
 }
 
-// char *cmd = "ls -l -a" && cmd2 = "wc -l" 
-// 		        [0  1  3]
+// char *cmd = "ls -l" && cmd2 = "wc -l" 
+// 		        [0  1]
 
-void ft_exec_command(char **envp, char *cmd)
+/*Execve for Running Commands
+--------------------------
+1. Create an argument vector.
+2. Use `execve` to run a command specified by its path.
+3. If `execve` returns, it indicates an error occurred (-1 return value).
+4. If `execve` succeeds, it doesn't return, and no further code is executed.
+*/
+void	ft_exec_command(char **envp, char *cmd)
 {
-	char *path;
-	char **cmd_sections;
+	char	*path;
+	char	**cmd_sections;
 
-	path = NUll;
+	path = NULL;
 	cmd_sections = ft_split(cmd, ' ');
 	path = ft_get_cmd_path(envp, cmd_sections[0]);
 	if (!path || !cmd_sections)
-			free_path_sections(cmd_sections);
+	{
+		free_path_sections(cmd_sections);
+		ft_error(E_CMD, "Errno");
+	}
 	execve(path, cmd_sections, envp);
-	ft_error();
+	ft_error(E_EXECVE, "Errno");
 }
 
