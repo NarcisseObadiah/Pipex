@@ -6,13 +6,14 @@
 /*   By: mobadiah <mobadiah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 18:02:19 by mobadiah          #+#    #+#             */
-/*   Updated: 2023/09/16 19:26:48 by mobadiah         ###   ########.fr       */
+/*   Updated: 2023/09/17 17:10:43 by mobadiah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/pipex.h" 
 
-//Child1 processs
+//Child1 process redirect the infile in read mode and redirect the stdin  to it.
+/*then redirect the write end of the pipe (fd[1])*/
 
 void	ft_child1_process(char **argv, char **envp, int *fd)
 {
@@ -29,7 +30,8 @@ void	ft_child1_process(char **argv, char **envp, int *fd)
 	ft_exec_command(envp, argv[2]);
 }
 
-//Child2 process
+//Child2 process redirect the outfile in write mode and
+/* redirect the stdin in fd[0], and the stdout to the outfile*/
 
 void	ft_child2_process(char **argv, char **envp, int *fd)
 {
@@ -103,4 +105,5 @@ int	main(int argc, char **argv, char **envp)
 		ft_putstr_fd("Error: Wrong arguments!!!\n", 2);
 		ft_putstr_fd("Eg: ./Pipex <file1> <cmd1> <cmd2> <file2>\n ", 2);
 	}
+	system("leaks pipex");
 }

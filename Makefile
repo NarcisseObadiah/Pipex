@@ -6,7 +6,7 @@
 #    By: mobadiah <mobadiah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/02 03:51:00 by mobadiah          #+#    #+#              #
-#    Updated: 2023/09/15 15:41:33 by mobadiah         ###   ########.fr        #
+#    Updated: 2023/09/17 17:15:58 by mobadiah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ HEADERS	:= -Iinclude -lglfw
 all:$(NAME) 
 
 $(NAME):build_libft $(OBJ) $(LIBFT)
-	@$(CC) $(OBJ) $(LIBFT)/libft.a $(HEADERS)\
+	@$(CC) $(OBJ) $(CFLAGS) $(LIBFT)/libft.a $(HEADERS)\
 	 -framework Cocoa -framework OpenGL -framework IOKit -o $(NAME)
 
 $(LIBFT):
