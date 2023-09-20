@@ -6,7 +6,7 @@
 /*   By: mobadiah <mobadiah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:52:54 by mobadiah          #+#    #+#             */
-/*   Updated: 2023/09/16 19:34:49 by mobadiah         ###   ########.fr       */
+/*   Updated: 2023/09/20 20:10:29 by mobadiah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_error(char *std, char *msg)
 {
 	ft_putstr_fd(std, 2);
 	perror(msg);
-	exit(EXIT_FAILURE);
+	exit(1);
 }
 
 //Function to free each section inside the array of path_sections, 
@@ -70,7 +70,6 @@ char	**ft_get_path(char **envp)
 	}
 	return (path_sections);
 }
-
 
 /*access checks every path in env_path if we get access permission.
 Upon successful completion, the value 0 is returned; 
@@ -128,4 +127,3 @@ void	ft_exec_command(char **envp, char *cmd)
 	execve(path, cmd_sections, envp);
 	ft_error(E_EXECVE, "Errno");
 }
-
