@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobadiah <mobadiah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: narcisse <narcisse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:52:54 by mobadiah          #+#    #+#             */
-/*   Updated: 2023/09/16 19:34:49 by mobadiah         ###   ########.fr       */
+/*   Updated: 2023/09/21 23:48:13 by narcisse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,6 @@ char	*ft_get_cmd_path(char **envp, char *cmd_sect)
 
 // char *cmd = "ls -l" && cmd2 = "wc -l" 
 // 		        [0  1]
-
 /*Execve for Running Commands
 --------------------------
 1. Create an argument vector.
