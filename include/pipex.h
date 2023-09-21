@@ -6,7 +6,7 @@
 /*   By: mobadiah <mobadiah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 13:12:58 by mobadiah          #+#    #+#             */
-/*   Updated: 2023/09/16 13:41:19 by mobadiah         ###   ########.fr       */
+/*   Updated: 2023/09/20 15:54:43 by mobadiah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ char	**ft_get_path(char **envp);
 char	*ft_get_cmd_path(char **envp, char *cmd_sect);
 void	free_path_sections(char **path_sections);
 void	ft_exec_command(char **envp, char *cmd);
+void	ft_close_all_fd(int *fd);
 
 #endif
