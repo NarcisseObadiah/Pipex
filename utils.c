@@ -6,7 +6,7 @@
 /*   By: narcisse <narcisse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:52:54 by mobadiah          #+#    #+#             */
-/*   Updated: 2023/09/22 00:10:57 by narcisse         ###   ########.fr       */
+/*   Updated: 2023/09/22 04:07:56 by narcisse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@ void	ft_error(char *std, char *msg)
 	perror(msg);
 	exit(1);
 }
-
+void	ft_close_all_fd(int *fd)
+{
+	close(fd[0]);
+	close(fd[1]);
+}
 //Function to free each section inside the array of path_sections, 
 //then free the array itself
 

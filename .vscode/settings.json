@@ -2,6 +2,7 @@
 	"files.associations": {
 		"pipex.h": "c",
 		"__functional_03": "c",
-		"functional": "c"
+		"functional": "c",
+		"libft.h": "c"
 	}
 }

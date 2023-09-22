@@ -6,17 +6,13 @@
 /*   By: narcisse <narcisse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 18:02:19 by mobadiah          #+#    #+#             */
-/*   Updated: 2023/09/22 00:12:18 by narcisse         ###   ########.fr       */
+/*   Updated: 2023/09/22 04:07:45 by narcisse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/pipex.h" 
 
-void	ft_close_all_fd(int *fd)
-{
-	close(fd[0]);
-	close(fd[1]);
-}
+
 //Child1 process redirect the infile in read mode and redirect the stdin  to it.
 /*then redirect the write end of the pipe (fd[1])*/
 

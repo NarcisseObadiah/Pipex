@@ -1,28 +1,25 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: mobadiah <mobadiah@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/09/02 03:51:00 by mobadiah          #+#    #+#              #
-#    Updated: 2023/09/17 17:15:58 by mobadiah         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+NAME	   := pipex
+NAME_BONUS := pipex_bonus
+SRC        := utils.c pipex.c
+SRC_BONUS  := utils_bonus.c pipex_bonus.c utils.c
+LIBFT      := ./libft
+OBJ        := $(SRC:.c=.o)
+OBJ_BONUS  := $(SRC_BONUS:.c=.o)
+CC         := gcc
+CFLAGS     := -Wall -Werror -Wextra
+LDFLAGS    := -L$(LIBFT) -lft
+HEADERS    := -Iinclude
 
-NAME		:= pipex
-SRC			:=	utils.c pipex.c
-LIBFT		:= ./libft
-OBJ			:= $(SRC:.c=.o)
-CC			:=	cc
-CFLAGS		:= -Wall -Werror -Wextra
-HEADERS	:= -Iinclude -lglfw 
+all: $(NAME)
 
-all:$(NAME) 
+bonus: $(NAME_BONUS)
 
-$(NAME):build_libft $(OBJ) $(LIBFT)
-	@$(CC) $(OBJ) $(CFLAGS) $(LIBFT)/libft.a $(HEADERS)\
-	 -framework Cocoa -framework OpenGL -framework IOKit -o $(NAME)
+$(NAME): build_libft $(OBJ)
+	@$(CC) $(OBJ) $(CFLAGS) $(LDFLAGS) $(HEADERS) -o $(NAME)
+
+$(NAME_BONUS): build_libft $(OBJ_BONUS)
+	@$(CC) $(OBJ_BONUS) $(CFLAGS) $(LDFLAGS) $(HEADERS) -o $(NAME_BONUS)
+
 
 $(LIBFT):
 	@make -C $(LIBFT)
@@ -32,12 +29,14 @@ build_libft:
 
 clean:
 	@make -C $(LIBFT) clean
-	@rm -rf $(OBJ)
+	@rm -rf $(OBJ) $(OBJ_BONUS)
 
 fclean: clean
-	@rm -rf $(LIBFT)/libft.a
-	@rm -f $(NAME)
+	@make -C $(LIBFT) fclean
+	@rm -f $(NAME) $(NAME)_bonus
 
 re: fclean all
 
-.PHONY: pipex,  build_libft, all, clean, fclean, re
+re_bonus:	fclean bonus
+
+.PHONY: all clean fclean re bonus

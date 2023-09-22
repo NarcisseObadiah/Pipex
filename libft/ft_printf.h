@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobadiah <mobadiah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: narcisse <narcisse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 03:30:41 by mobadiah          #+#    #+#             */
-/*   Updated: 2023/04/26 11:25:15 by mobadiah         ###   ########.fr       */
+/*   Updated: 2023/09/22 00:19:43 by narcisse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdarg.h>
+#include <stdint.h>
 
 int		ft_printf(const char *str, ...);
 int		ft_print_hex_nbr(unsigned int nbr, const char format);
