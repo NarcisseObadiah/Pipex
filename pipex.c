@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: narcisse <narcisse@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mobadiah <mobadiah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 18:02:19 by mobadiah          #+#    #+#             */
-/*   Updated: 2023/09/22 04:07:45 by narcisse         ###   ########.fr       */
+/*   Updated: 2023/09/23 18:21:34 by mobadiah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/pipex.h" 
-
 
 //Child1 process redirect the infile in read mode and redirect the stdin  to it.
 /*then redirect the write end of the pipe (fd[1])*/
@@ -103,14 +102,10 @@ int	main(int argc, char **argv, char **envp)
 		else
 		{
 			ft_child2_process(argv, envp, fd);
+			ft_close_all_fd(fd);
 			waitpid(pid, NULL, 0);
 		}
-		ft_close_all_fd(fd);
 	}
 	else
-	{
-		ft_putstr_fd("Error: Wrong arguments!!!\n", 2);
-		ft_putstr_fd("Eg: ./Pipex <file1> <cmd1> <cmd2> <file2>\n ", 2);
-	}
-	exit(0);
+		return (ft_putstr_fd("Usage: ./pipex infile cmd1 cmd2 outfile\n", 1), 0);
 }

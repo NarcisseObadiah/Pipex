@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: narcisse <narcisse@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mobadiah <mobadiah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 00:35:13 by narcisse          #+#    #+#             */
-/*   Updated: 2023/09/22 13:59:22 by narcisse         ###   ########.fr       */
+/*   Updated: 2023/09/22 18:19:03 by mobadiah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./include/pipex.h"
 
-void error(char *msg)
+void	error(char *msg)
 {
-    ft_putstr_fd(msg, 2);
-    ft_putstr("\n");
-    exit(0);
+	ft_putstr_fd(msg, 2);
+	ft_putstr("\n");
+	exit(0);
 }

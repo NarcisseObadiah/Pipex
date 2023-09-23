@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: narcisse <narcisse@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mobadiah <mobadiah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:52:54 by mobadiah          #+#    #+#             */
-/*   Updated: 2023/09/22 04:07:56 by narcisse         ###   ########.fr       */
+/*   Updated: 2023/09/23 20:58:54 by mobadiah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ void	ft_error(char *std, char *msg)
 {
 	ft_putstr_fd(std, 2);
 	perror(msg);
-	exit(1);
+	exit(0);
 }
+
 void	ft_close_all_fd(int *fd)
 {
 	close(fd[0]);
@@ -114,6 +115,7 @@ char	*ft_get_cmd_path(char **envp, char *cmd_sect)
 3. If `execve` returns, it indicates an error occurred (-1 return value).
 4. If `execve` succeeds, it doesn't return, and no further code is executed.
 */
+
 void	ft_exec_command(char **envp, char *cmd)
 {
 	char	*path;

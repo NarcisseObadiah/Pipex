@@ -1,1 +1,14 @@
-main process on going!!!15
+total 3272
+-rw-r--r--   1 mobadiah  2022_heilbronn      819 Sep 22 17:45 Makefile
+-rw-r--r--@  1 mobadiah  2022_heilbronn  1586470 Sep  8 20:24 en.subject .pdf
+drwxr-xr-x   3 mobadiah  2022_heilbronn      102 Sep 22 17:45 include
+drwxr-xr-x  98 mobadiah  2022_heilbronn     3332 Sep 23 20:54 libft
+-rwxr-xr-x   1 mobadiah  2022_heilbronn        0 Sep 23 20:55 outfile
+-rw-r--r--   1 mobadiah  2022_heilbronn     3430 Sep 23 18:21 pipex.c
+-rwxr-xr-x   1 mobadiah  2022_heilbronn    51920 Sep 23 20:55 pipex_bonus
+-rw-r--r--   1 mobadiah  2022_heilbronn     2493 Sep 23 20:55 pipex_bonus.c
+-rw-r--r--   1 mobadiah  2022_heilbronn     2760 Sep 23 20:55 pipex_bonus.o
+-rw-r--r--   1 mobadiah  2022_heilbronn     3432 Sep 23 20:50 utils.c
+-rw-r--r--   1 mobadiah  2022_heilbronn     2696 Sep 23 20:54 utils.o
+-rw-r--r--   1 mobadiah  2022_heilbronn      999 Sep 22 18:19 utils_bonus.c
+-rw-r--r--   1 mobadiah  2022_heilbronn      840 Sep 23 20:54 utils_bonus.o

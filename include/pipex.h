@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: narcisse <narcisse@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mobadiah <mobadiah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 13:12:58 by mobadiah          #+#    #+#             */
-/*   Updated: 2023/09/22 02:07:06 by narcisse         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:57:13 by mobadiah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void	ft_exec_command(char **envp, char *cmd);
 void	ft_close_all_fd(int *fd);
 
 
-void error(char *msg);
-void ft_child_process(char *argv, char **envp);
+void	error(char *msg);	
+void	ft_child_process(char *argv, char **envp);
 void	ft_here_doc(char *limiter, int argc);
 
 #endif
