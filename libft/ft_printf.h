@@ -6,7 +6,7 @@
 /*   By: mobadiah <mobadiah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 03:30:41 by mobadiah          #+#    #+#             */
-/*   Updated: 2023/09/22 17:47:49 by mobadiah         ###   ########.fr       */
+/*   Updated: 2023/09/25 17:36:38 by mobadiah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <unistd.h>
 # include <stdarg.h>
-#include <stdint.h>
+# include <stdint.h>
 
 int		ft_printf(const char *str, ...);
 int		ft_print_hex_nbr(unsigned int nbr, const char format);

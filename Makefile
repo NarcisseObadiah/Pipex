@@ -1,10 +1,10 @@
 NAME	   := pipex
-NAME_BONUS := pipex_bonus
-SRC        := utils.c pipex.c
-SRC_BONUS  := utils_bonus.c pipex_bonus.c utils.c
+# NAME_BONUS := pipex_bonus
+SRC        := utils.c pipex.c fd_close_all_fd.c
+# SRC_BONUS  := utils_bonus.c pipex_bonus.c utils.c
 LIBFT      := ./libft
 OBJ        := $(SRC:.c=.o)
-OBJ_BONUS  := $(SRC_BONUS:.c=.o)
+# OBJ_BONUS  := $(SRC_BONUS:.c=.o)
 CC         := gcc
 CFLAGS     := -Wall -Werror -Wextra
 LDFLAGS    := -L$(LIBFT) -lft
@@ -12,13 +12,13 @@ HEADERS    := -Iinclude
 
 all: $(NAME)
 
-bonus: $(NAME_BONUS)
+# bonus: $(NAME_BONUS)
 
 $(NAME): build_libft $(OBJ)
 	@$(CC) $(OBJ) $(CFLAGS) $(LDFLAGS) $(HEADERS) -o $(NAME)
 
-$(NAME_BONUS): build_libft $(OBJ_BONUS)
-	@$(CC) $(OBJ_BONUS) $(CFLAGS) $(LDFLAGS) $(HEADERS) -o $(NAME_BONUS)
+# $(NAME_BONUS): build_libft $(OBJ_BONUS)
+# 	@$(CC) $(OBJ_BONUS) $(CFLAGS) $(LDFLAGS) $(HEADERS) -o $(NAME_BONUS)
 
 
 $(LIBFT):
@@ -37,6 +37,6 @@ fclean: clean
 
 re: fclean all
 
-re_bonus:	fclean bonus
+# re_bonus:	fclean bonus
 
 .PHONY: all clean fclean re bonus

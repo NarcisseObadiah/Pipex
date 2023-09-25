@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_bonus.c                                      :+:      :+:    :+:   */
+/*   fd_close.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mobadiah <mobadiah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/22 00:35:13 by narcisse          #+#    #+#             */
-/*   Updated: 2023/09/22 18:19:03 by mobadiah         ###   ########.fr       */
+/*   Created: 2023/09/25 17:18:06 by mobadiah          #+#    #+#             */
+/*   Updated: 2023/09/25 17:18:46 by mobadiah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/pipex.h"
+#include "include/pipex.h"
 
-void	error(char *msg)
+void	ft_close_all_fd(int *fd)
 {
-	ft_putstr_fd(msg, 2);
-	ft_putstr("\n");
-	exit(0);
+	close(fd[0]);
+	close(fd[1]);
 }
