@@ -6,7 +6,7 @@
 /*   By: mobadiah <mobadiah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 18:02:19 by mobadiah          #+#    #+#             */
-/*   Updated: 2023/09/25 17:40:46 by mobadiah         ###   ########.fr       */
+/*   Updated: 2023/09/25 18:12:56 by mobadiah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,6 @@ int	main(int argc, char **argv, char **envp)
 			ft_child2_process(argv, envp, fd);
 			ft_close_all_fd(fd);
 			waitpid(pid, NULL, 0);
-			// printf("heyyy");
 		}
 	}
 	else
